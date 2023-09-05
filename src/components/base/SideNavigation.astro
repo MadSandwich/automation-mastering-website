@@ -1,0 +1,52 @@
+---
+const menuLinks = [
+  {
+    title: 'Home',
+    link: '/',
+  },
+  {
+    title: 'Dashboard',
+    link: '/dashboard',
+  },
+]
+---
+
+<aside
+  class='fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700'
+  aria-label='Sidenav'
+  id='drawer-navigation'
+>
+  <div class='overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800'>
+    <ul class='space-y-2'>
+      {
+        menuLinks.map((item) => {
+          return (
+            <li>
+              <a
+                href={item.link}
+                class='flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group'
+              >
+                <svg
+                  class='w-[12px] h-[12px] text-gray-800 dark:text-white'
+                  aria-hidden='true'
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 8 14'
+                >
+                  <path
+                    stroke='currentColor'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                    d='m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1'
+                  />
+                </svg>
+                <span class='ml-3'>{item.title}</span>
+              </a>
+            </li>
+          )
+        })
+      }
+    </ul>
+  </div>
+</aside>
