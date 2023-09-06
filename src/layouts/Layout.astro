@@ -12,12 +12,12 @@ const { title, description } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <BaseHead title={title} , description={description} />
-  <body class="antialiased bg-gray-50 dark:bg-gray-900">
+  <body class='antialiased bg-gray-50 dark:bg-gray-900'>
     <Header />
     <SideNavigation />
-    <main class="p-4 md:ml-64 h-auto pt-20 bg-gray-50 dark:bg-gray-900">
+    <main class='p-4 md:ml-64 h-auto pt-20 bg-gray-50 dark:bg-gray-900'>
       <slot />
     </main>
     <script>
