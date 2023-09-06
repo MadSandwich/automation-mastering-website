@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
+if (!Astro.request.headers.get('cookie')) {
+  return Astro.redirect('/login');
+}
 ---
 
 <Layout title='Home page' description='Page description'>

@@ -1,6 +1,10 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import DashboardData from '@components/dashboard/DashboardData.astro'
+
+if (!Astro.request.headers.get('cookie')) {
+  return Astro.redirect('/login');
+}
 ---
 
 <Layout title='dashboard' description='Dashboard description'>
