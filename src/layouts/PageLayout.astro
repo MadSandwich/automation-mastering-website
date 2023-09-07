@@ -1,14 +1,14 @@
 ---
-import Layout from "@layouts/BaseLayout.astro";
-import SideNavigation from "@components/base/SideNavigation.astro";
-import Header from "@components/base/Header.astro";
+import Layout from '@layouts/BaseLayout.astro'
+import SideNavigation from '@components/base/SideNavigation.astro'
+import Header from '@components/base/Header.astro'
 
 interface Props {
-	title: string;
-	description: string;
+	title: string
+	description: string
 }
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 ---
 
 <Layout {title} {description}>

@@ -9,6 +9,7 @@ export default {
 		{
 			files: '*.astro',
 			options: {
+				singleQuote: true,
 				parser: 'astro',
 			},
 		},

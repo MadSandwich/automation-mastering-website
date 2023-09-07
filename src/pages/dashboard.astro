@@ -1,9 +1,9 @@
 ---
-import Layout from "@layouts/PageLayout.astro";
-import DashboardData from "@components/dashboard/DashboardData.astro";
+import Layout from '@layouts/PageLayout.astro'
+import DashboardData from '@components/dashboard/DashboardData.astro'
 
-if (!Astro.request.headers.get("cookie")) {
-	return Astro.redirect("/auth/login");
+if (!Astro.request.headers.get('cookie')) {
+	return Astro.redirect('/auth/login')
 }
 ---
 

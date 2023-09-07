@@ -1,8 +1,8 @@
 ---
-import Layout from "../layouts/PageLayout.astro";
+import Layout from '../layouts/PageLayout.astro'
 
-if (!Astro.request.headers.get("cookie")) {
-	return Astro.redirect("/auth/login");
+if (!Astro.request.headers.get('cookie')) {
+	return Astro.redirect('/auth/login')
 }
 ---
 
