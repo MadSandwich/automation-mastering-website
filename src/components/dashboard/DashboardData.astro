@@ -4,103 +4,89 @@ import Card from './Card.astro'
 import Table from './Table.astro'
 
 const cardItems = [
-  {
-    title: 'New products',
-    amount: '2.340',
-    percent: 12.5,
-    sinceDate: 'Since last month',
-    chart: 'new-products-chart',
-  },
-  {
-    title: 'New users',
-    amount: '1.160',
-    percent: 5.9,
-    sinceDate: 'Since last month',
-    chart: 'week-signups-chart',
-  },
-  {
-    title: 'Last quarter visits',
-    amount: '9.790',
-    percent: 51.9,
-    sinceDate: 'Since last month',
-    chart: 'user-visits-chart',
-  },
+	{
+		title: 'New products',
+		amount: '2.340',
+		percent: 12.5,
+		sinceDate: 'Since last month',
+		chart: 'new-products-chart',
+	},
+	{
+		title: 'New users',
+		amount: '1.160',
+		percent: 5.9,
+		sinceDate: 'Since last month',
+		chart: 'week-signups-chart',
+	},
+	{
+		title: 'Last quarter visits',
+		amount: '9.790',
+		percent: 51.9,
+		sinceDate: 'Since last month',
+		chart: 'user-visits-chart',
+	},
 ]
 ---
 
-<div class='px-4 pt-6'>
-  <Chart />
-  <div
-    class='grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3'
-  >
-    {
-      cardItems.map((item) => (
-        <Card
-          title={item.title}
-          amount={item.amount}
-          percent={item.percent}
-          sinceDate={item.sinceDate}
-          chart={item.chart}
-        />
-      ))
-    }
-  </div>
+<div class="px-4 pt-6">
+	<Chart />
+	<div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
+		{
+			cardItems.map((item) => (
+				<Card title={item.title} amount={item.amount} percent={item.percent} sinceDate={item.sinceDate} chart={item.chart} />
+			))
+		}
+	</div>
 
-  <div
-    class='my-4 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800'
-  >
-    <!-- Card header -->
-    <div class='items-center justify-between lg:flex'>
-      <div class='mb-4 lg:mb-0'>
-        <h3 class='mb-2 text-xl font-bold text-gray-900 dark:text-white'>
-          Transactions
-        </h3>
-        <span class='text-base font-normal text-gray-500 dark:text-gray-400'
-          >This is a list of latest transactions</span
-        >
-      </div>
-    </div>
-    <!-- Table -->
-    <div class='flex flex-col mt-6'>
-      <div class='overflow-x-auto rounded-lg'>
-        <div class='inline-block min-w-full align-middle'>
-          <div class='overflow-hidden shadow sm:rounded-lg'>
-            <Table />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="my-4 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+		<!-- Card header -->
+		<div class="items-center justify-between lg:flex">
+			<div class="mb-4 lg:mb-0">
+				<h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Transactions</h3>
+				<span class="text-base font-normal text-gray-500 dark:text-gray-400">This is a list of latest transactions</span>
+			</div>
+		</div>
+		<!-- Table -->
+		<div class="flex flex-col mt-6">
+			<div class="overflow-x-auto rounded-lg">
+				<div class="inline-block min-w-full align-middle">
+					<div class="overflow-hidden shadow sm:rounded-lg">
+						<Table />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script>
-  import './DashBoard.client.js'
+	import './DashBoard.client.js'
 </script>
 
 <style is:global>
-  /* chart styles */
-  .apexcharts-tooltip {
-    @apply bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-400 border-0 rounded-lg shadow-lg !important;
-  }
+	/* chart styles */
+	.apexcharts-tooltip {
+		@apply bg-white dark:bg-gray-700 text-gray-500 dark:text-gray-400 border-0 rounded-lg shadow-lg !important;
+	}
 
-  .apexcharts-tooltip .apexcharts-tooltip-title {
-    @apply py-2 px-4 bg-gray-100 dark:bg-gray-600 border-b border-gray-200 dark:border-gray-500 !important;
-  }
+	.apexcharts-tooltip .apexcharts-tooltip-title {
+		@apply py-2 px-4 bg-gray-100 dark:bg-gray-600 border-b border-gray-200 dark:border-gray-500 !important;
+	}
 
-  .apexcharts-xaxistooltip {
-    @apply text-gray-500 border-0 bg-white dark:bg-gray-700 dark:text-gray-300 rounded-lg shadow-lg !important;
-  }
+	.apexcharts-xaxistooltip {
+		@apply text-gray-500 border-0 bg-white dark:bg-gray-700 dark:text-gray-300 rounded-lg shadow-lg !important;
+	}
 
-  .apexcharts-tooltip .apexcharts-tooltip-text-y-value {
-    @apply dark:text-white;
-  }
+	.apexcharts-tooltip .apexcharts-tooltip-text-y-value {
+		@apply dark:text-white;
+	}
 
-  .apexcharts-xaxistooltip-text {
-    @apply font-medium text-sm !important;
-  }
+	.apexcharts-xaxistooltip-text {
+		@apply font-medium text-sm !important;
+	}
 
-  .apexcharts-xaxistooltip:before,
-  .apexcharts-xaxistooltip:after {
-    @apply border-0 !important;
-  }
+	.apexcharts-xaxistooltip:before,
+	.apexcharts-xaxistooltip:after {
+		@apply border-0 !important;
+	}
 </style>

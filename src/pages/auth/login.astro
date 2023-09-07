@@ -1,155 +1,126 @@
 ---
-import Layout from '../../layouts/authLayout.astro'
+import Layout from '@layouts/AuthorisationLayout.astro'
 ---
 
-<Layout title='Login page' description='Login page for automation demo website'>
-  <div class='flex justify-center items-center h-screen'>
-    <section class='bg-gray-50 dark:bg-gray-900'>
-      <div class='flex flex-col items-center justify-center mx-auto md:h-1/2'>
-        <div
-          class='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'
-        >
-          <div class='p-6 space-y-4 md:space-y-6 sm:p-8'>
-            <h1
-              class='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'
-            >
-              Sign in to your account
-            </h1>
-            <form
-              class='space-y-4 md:space-y-6'
-              action='#'
-              method='post'
-              id='login-form'
-              autocomplete='on'
-            >
-              <div>
-                <label
-                  for='email_input'
-                  class='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-                  id='email_label'>Your email</label
-                >
-                <input
-                  type='email'
-                  name='email'
-                  id='email_input'
-                  class='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                  placeholder='name@domain.com'
-                  required='true'
-                  autocomplete='on'
-                />
-              </div>
-              <div>
-                <label
-                  for='password_input'
-                  id='password_label'
-                  class='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-                  >Password</label
-                >
-                <input
-                  type='password'
-                  name='password'
-                  id='password_input'
-                  placeholder='••••••••'
-                  class='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                  required='true'
-                />
-                <p
-                  id='error_message'
-                  class='mt-2 text-sm text-red-600 dark:text-red-500 hidden'
-                >
-                  <span class='font-medium'>Oh, snapp!</span> Email or Password
-                  is wrong!
-                </p>
-              </div>
-              <input
-                type='submit'
-                class='w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
-                value='Sign in'
-              />
-              <div class='text-sm font-medium text-gray-500 dark:text-gray-300'>
-                Not registered? <a
-                  href='/register'
-                  class='text-primary-700 hover:underline dark:text-primary-500'
-                  >Create account</a
-                >
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+<Layout title="Login page" description="Login page for automation demo website">
+	<div class="flex justify-center items-center h-screen">
+		<section class="bg-gray-50 dark:bg-gray-900">
+			<div class="flex flex-col items-center justify-center mx-auto md:h-1/2">
+				<div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+					<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+						<h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+							Sign in to your account
+						</h1>
+						<form class="space-y-4 md:space-y-6" action="#" method="post" id="login-form" autocomplete="on">
+							<div>
+								<label for="email_input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" id="email_label"
+									>Your email</label
+								>
+								<input
+									type="email"
+									name="email"
+									id="email_input"
+									class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+									placeholder="name@domain.com"
+									required="true"
+									autocomplete="on"
+								/>
+							</div>
+							<div>
+								<label for="password_input" id="password_label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+									>Password</label
+								>
+								<input
+									type="password"
+									name="password"
+									id="password_input"
+									placeholder="••••••••"
+									class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+									required="true"
+								/>
+								<p id="error_message" class="mt-2 text-sm text-red-600 dark:text-red-500 hidden">
+									<span class="font-medium">Oh, snapp!</span> Email or Password is wrong!
+								</p>
+							</div>
+							<input
+								type="submit"
+								class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+								value="Sign in"
+							/>
+							<div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+								Not registered? <a href="/auth/register" class="text-primary-700 hover:underline dark:text-primary-500"
+									>Create account</a
+								>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 
-  <script>
-    var loginLabel = document.getElementById('email_label')
-    var loginInput = document.getElementById('email_input')
+	<script>
+		var loginLabel = document.getElementById('email_label')
+		var loginInput = document.getElementById('email_input')
 
-    var passwordLabel = document.getElementById('password_label')
-    var passwordInput = document.getElementById('password_input')
+		var passwordLabel = document.getElementById('password_label')
+		var passwordInput = document.getElementById('password_input')
 
-    var errorMessage = document.getElementById('error_message')
+		var errorMessage = document.getElementById('error_message')
 
-    document
-      .getElementById('login-form')
-      .addEventListener('submit', function (event) {
-        event.preventDefault()
-        if (
-          loginInput.value === 'admin@email.com' &&
-          passwordInput.value === '1234567890'
-        ) {
-          document.cookie = 'token=0102030405'
-          window.location.href = '/'
-        } else {
-          // Add error message
-          errorMessage.classList.remove('hidden')
-          // Email label & input re-shape
-          loginLabel.classList.replace('dark:text-white', 'dark:text-red-500')
-          loginInput.value = ''
-          loginInput.classList = ''
-          loginInput.classList.add(
-            'bg-red-50',
-            'border',
-            'border-red-500',
-            'text-red-900',
-            'placeholder-red-700',
-            'text-sm',
-            'rounded-lg',
-            'focus:ring-red-500',
-            'dark:bg-gray-700',
-            'focus:border-red-500',
-            'block',
-            'w-full',
-            'p-2.5',
-            'dark:text-red-500',
-            'dark:placeholder-red-500',
-            'dark:border-red-500'
-          )
-          // Password label & input re-shape
-          passwordLabel.classList.replace(
-            'dark:text-white',
-            'dark:text-red-500'
-          )
-          password_input.value = ''
-          password_input.classList = ''
-          password_input.classList.add(
-            'bg-red-50',
-            'border',
-            'border-red-500',
-            'text-red-900',
-            'placeholder-red-700',
-            'text-sm',
-            'rounded-lg',
-            'focus:ring-red-500',
-            'dark:bg-gray-700',
-            'focus:border-red-500',
-            'block',
-            'w-full',
-            'p-2.5',
-            'dark:text-red-500',
-            'dark:placeholder-red-500',
-            'dark:border-red-500'
-          )
-        }
-      })
-  </script>
+		document.getElementById('login-form').addEventListener('submit', function (event) {
+			event.preventDefault()
+			if (loginInput.value === 'admin@email.com' && passwordInput.value === '1234567890') {
+				document.cookie = 'token=0102030405; ;path=/'
+				window.location.href = '/'
+			} else {
+				// Add error message
+				errorMessage.classList.remove('hidden')
+				// Email label & input re-shape
+				loginLabel.classList.replace('dark:text-white', 'dark:text-red-500')
+				loginInput.value = ''
+				loginInput.classList = ''
+				loginInput.classList.add(
+					'bg-red-50',
+					'border',
+					'border-red-500',
+					'text-red-900',
+					'placeholder-red-700',
+					'text-sm',
+					'rounded-lg',
+					'focus:ring-red-500',
+					'dark:bg-gray-700',
+					'focus:border-red-500',
+					'block',
+					'w-full',
+					'p-2.5',
+					'dark:text-red-500',
+					'dark:placeholder-red-500',
+					'dark:border-red-500'
+				)
+				// Password label & input re-shape
+				passwordLabel.classList.replace('dark:text-white', 'dark:text-red-500')
+				password_input.value = ''
+				password_input.classList = ''
+				password_input.classList.add(
+					'bg-red-50',
+					'border',
+					'border-red-500',
+					'text-red-900',
+					'placeholder-red-700',
+					'text-sm',
+					'rounded-lg',
+					'focus:ring-red-500',
+					'dark:bg-gray-700',
+					'focus:border-red-500',
+					'block',
+					'w-full',
+					'p-2.5',
+					'dark:text-red-500',
+					'dark:placeholder-red-500',
+					'dark:border-red-500'
+				)
+			}
+		})
+	</script>
 </Layout>
