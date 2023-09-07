@@ -1,0 +1,20 @@
+---
+import Layout from "@layouts/BaseLayout.astro";
+import SideNavigation from "@components/base/SideNavigation.astro";
+import Header from "@components/base/Header.astro";
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout {title} {description}>
+	<Header />
+	<SideNavigation />
+	<main class="p-4 md:ml-64 h-auto pt-20 bg-gray-50 dark:bg-gray-900">
+		<slot />
+	</main>
+</Layout>
