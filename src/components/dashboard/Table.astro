@@ -57,10 +57,10 @@ const tableItems = [
 	<thead class="bg-gray-50 dark:bg-gray-700">
 		<tr>
 			{
-				tableHeader.map((item) => {
+				tableHeader.map(({ col }) => {
 					return (
 						<th scope="col" class={columnStyle.headers}>
-							{item.col}
+							{col}
 						</th>
 					)
 				})
@@ -69,26 +69,26 @@ const tableItems = [
 	</thead>
 	<tbody class="bg-white dark:bg-gray-800">
 		{
-			tableItems.map((item, i) => {
+			tableItems.map(({ amount, date, paymentMenthodDigits, paymentMenthodProvider, reference, status, statusClass, transaction }, i) => {
 				return (
 					<tr class={i % 2 === 0 ? '' : 'bg-gray-50 dark:bg-gray-700'}>
-						<td class={columnStyle.dark}>{item.transaction}</td>
-						<td class={columnStyle.light}>{item.date}</td>
-						<td class={columnStyle.dark}>{item.amount}</td>
-						<td class={columnStyle.light}>{item.reference}</td>
+						<td class={columnStyle.dark}>{transaction}</td>
+						<td class={columnStyle.light}>{date}</td>
+						<td class={columnStyle.dark}>{amount}</td>
+						<td class={columnStyle.light}>{reference}</td>
 						<td class="inline-flex items-center p-4 space-x-2 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
 							<>
 								<Image
 									width={24}
 									height={24}
-									src={item.paymentMenthodProvider}
-									alt={`Paymnet method provider for ${item.transaction}`}
+									src={paymentMenthodProvider}
+									alt={`Paymnet method provider for ${transaction}`}
 								/>
-								<span>{item.paymentMenthodDigits}</span>
+								<span>{paymentMenthodDigits}</span>
 							</>
 						</td>
 						<td class="p-4 whitespace-nowrap">
-							<span class={item.statusClass}>{item.status}</span>
+							<span class={statusClass}>{status}</span>
 						</td>
 					</tr>
 				)

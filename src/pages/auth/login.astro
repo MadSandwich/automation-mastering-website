@@ -60,15 +60,34 @@ import Layout from '@layouts/AuthorisationLayout.astro'
 	</div>
 
 	<script>
-		var loginLabel = document.getElementById('email_label')
-		var loginInput = document.getElementById('email_input')
+		var errorClasses = [
+			'bg-red-50',
+			'border',
+			'border-red-500',
+			'text-red-900',
+			'placeholder-red-700',
+			'text-sm',
+			'rounded-lg',
+			'focus:ring-red-500',
+			'dark:bg-gray-700',
+			'focus:border-red-500',
+			'block',
+			'w-full',
+			'p-2.5',
+			'dark:text-red-500',
+			'dark:placeholder-red-500',
+			'dark:border-red-500',
+		]
+		var loginForm = document.getElementById('login-form')!
+		var loginLabel = document.getElementById('email_label')!
+		var loginInput = (document.getElementById('email_input') as HTMLInputElement)!
 
-		var passwordLabel = document.getElementById('password_label')
-		var passwordInput = document.getElementById('password_input')
+		var passwordLabel = document.getElementById('password_label')!
+		var passwordInput = (document.getElementById('password_input') as HTMLInputElement)!
 
-		var errorMessage = document.getElementById('error_message')
+		var errorMessage = document.getElementById('error_message')!
 
-		document.getElementById('login-form').addEventListener('submit', function (event) {
+		loginForm.addEventListener('submit', function (event) {
 			event.preventDefault()
 			if (loginInput.value === 'admin@email.com' && passwordInput.value === '1234567890') {
 				document.cookie = 'token=0102030405; ;path=/'
@@ -79,47 +98,13 @@ import Layout from '@layouts/AuthorisationLayout.astro'
 				// Email label & input re-shape
 				loginLabel.classList.replace('dark:text-white', 'dark:text-red-500')
 				loginInput.value = ''
-				loginInput.classList = ''
-				loginInput.classList.add(
-					'bg-red-50',
-					'border',
-					'border-red-500',
-					'text-red-900',
-					'placeholder-red-700',
-					'text-sm',
-					'rounded-lg',
-					'focus:ring-red-500',
-					'dark:bg-gray-700',
-					'focus:border-red-500',
-					'block',
-					'w-full',
-					'p-2.5',
-					'dark:text-red-500',
-					'dark:placeholder-red-500',
-					'dark:border-red-500'
-				)
+				loginInput.classList.remove(...loginInput.classList)
+				loginInput.classList.add(...errorClasses)
 				// Password label & input re-shape
 				passwordLabel.classList.replace('dark:text-white', 'dark:text-red-500')
-				password_input.value = ''
-				password_input.classList = ''
-				password_input.classList.add(
-					'bg-red-50',
-					'border',
-					'border-red-500',
-					'text-red-900',
-					'placeholder-red-700',
-					'text-sm',
-					'rounded-lg',
-					'focus:ring-red-500',
-					'dark:bg-gray-700',
-					'focus:border-red-500',
-					'block',
-					'w-full',
-					'p-2.5',
-					'dark:text-red-500',
-					'dark:placeholder-red-500',
-					'dark:border-red-500'
-				)
+				passwordInput.value = ''
+				passwordInput.classList.remove(...passwordInput.classList)
+				passwordInput.classList.add(...errorClasses)
 			}
 		})
 	</script>

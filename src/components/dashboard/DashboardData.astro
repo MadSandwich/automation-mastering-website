@@ -32,8 +32,8 @@ const cardItems = [
 	<Chart />
 	<div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
 		{
-			cardItems.map((item) => (
-				<Card title={item.title} amount={item.amount} percent={item.percent} sinceDate={item.sinceDate} chart={item.chart} />
+			cardItems.map(({ title, amount, percent, sinceDate, chart }) => (
+				<Card title={title} amount={amount} percent={percent} sinceDate={sinceDate} chart={chart} />
 			))
 		}
 	</div>

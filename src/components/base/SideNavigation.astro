@@ -19,11 +19,11 @@ const menuLinks = [
 	<div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800">
 		<ul class="space-y-2">
 			{
-				menuLinks.map((item) => {
+				menuLinks.map(({ title, link }) => {
 					return (
 						<li>
 							<a
-								href={item.link}
+								href={link}
 								class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
 							>
 								<svg
@@ -41,7 +41,7 @@ const menuLinks = [
 										d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
 									/>
 								</svg>
-								<span class="ml-3">{item.title}</span>
+								<span class="ml-3">{title}</span>
 							</a>
 						</li>
 					)
