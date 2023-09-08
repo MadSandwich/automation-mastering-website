@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import vercel from '@astrojs/vercel/serverless'
 
 export default defineConfig({
-	site: 'automation-mastering-website.vercel.app',
+	site: 'https://automation-mastering-website.vercel.app',
 	output: 'server',
 	integrations: [tailwind(), sitemap()],
 	adapter: vercel(),
