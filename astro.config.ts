@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import vercel from '@astrojs/vercel/serverless'
 
 export default defineConfig({
-	site: 'https://automation-mastering-website-git-varceladapter-madsandwich.vercel.app',
+	site: 'automation-mastering-website.vercel.app',
 	output: 'server',
 	integrations: [tailwind(), sitemap()],
 	adapter: vercel(),
