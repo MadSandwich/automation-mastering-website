@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://automation-mastering-website.vercel.app/sitemap-index.xml
