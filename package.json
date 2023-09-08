@@ -12,7 +12,9 @@
 		"enforceStyle": "prettier -w \"**/*.astro\" ."
 	},
 	"dependencies": {
+		"@astrojs/sitemap": "^3.0.0",
 		"@astrojs/tailwind": "^5.0.0",
+		"@astrojs/vercel": "^4.0.5",
 		"apexcharts": "^3.42.0",
 		"astro": "^3.0.5",
 		"flowbite": "^1.8.1",

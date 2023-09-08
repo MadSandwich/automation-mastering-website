@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import visa from '@assets/visa.svg'
-import masterCard from '@assets/mastercard.svg'
+import masterCard from '@assets/masterCard.svg'
 
 const paymentStatus = {
 	inProgress:
@@ -78,12 +78,7 @@ const tableItems = [
 						<td class={columnStyle.light}>{reference}</td>
 						<td class="inline-flex items-center p-4 space-x-2 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
 							<>
-								<Image
-									width={24}
-									height={24}
-									src={paymentMenthodProvider}
-									alt={`Paymnet method provider for ${transaction}`}
-								/>
+								<Image width={24} height={24} src={paymentMenthodProvider} alt={`Paymnet method provider for ${transaction}`} />
 								<span>{paymentMenthodDigits}</span>
 							</>
 						</td>
