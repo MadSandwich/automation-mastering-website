@@ -1,0 +1,12 @@
+---
+import Layout from '@layouts/PageLayout.astro'
+import TransactionsTable from '@components/transactions/TransactionsTable.astro'
+
+if (!Astro.request.headers.get('cookie')) {
+	return Astro.redirect('/auth/login')
+}
+---
+
+<Layout title="Transactions" description="Transactions table operations">
+	<TransactionsTable />
+</Layout>
