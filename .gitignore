@@ -4,7 +4,8 @@ dist/
 # generated types
 .astro/
 
-# dependencies
+# dependencies & cache
+.yarn/
 node_modules/
 
 # logs
