@@ -114,6 +114,12 @@ export default function Login() {
 										'Sign in'
 									)}
 								</button>
+								<p className="text-sm font-light text-gray-500 dark:text-gray-400">
+									Don't have an account?
+									<a href="/auth/register" className="pl-4 font-medium text-primary-600 hover:underline dark:text-primary-500">
+										Register here
+									</a>
+								</p>
 							</form>
 						</div>
 					</div>
