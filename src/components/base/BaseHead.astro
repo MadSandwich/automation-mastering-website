@@ -1,5 +1,6 @@
 ---
 import favicon from '@assets/favicon.svg'
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
 	title: string
@@ -18,8 +19,7 @@ const { title, description } = Astro.props
 
 <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
-<!-- Font preloads -->
-<!-- <link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin /> -->
+<ViewTransitions />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -42,12 +42,17 @@ const { title, description } = Astro.props
 <meta property="twitter:description" content={description} />
 
 <script is:inline>
-	if (
-		localStorage.getItem('color-theme') === 'dark' ||
-		(!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-	) {
-		document.documentElement.classList.add('dark')
-	} else {
-		document.documentElement.classList.remove('dark')
+	const setDarkMode = () => {
+		if (
+			localStorage.getItem('color-theme') === 'dark' ||
+			(!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.classList.add('dark')
+		} else {
+			document.documentElement.classList.remove('dark')
+		}
 	}
+
+	setDarkMode()
+	document.addEventListener('astro:after-swap', setDarkMode)
 </script>
