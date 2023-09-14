@@ -29,7 +29,7 @@ export default function Register() {
 		try {
 			if (name && surname && email && confirmEmail && password && confirmPassword && terms) {
 				if (email === confirmEmail && password === confirmPassword) {
-					await createUser(name, surname, email, password)
+					await createUser(email, password, name, surname)
 					setStatus({ error: '', success: true, isLoading: false })
 					window.location.href = '/auth/login'
 				} else {
