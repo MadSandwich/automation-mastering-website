@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { userInfo, emailData, passwordData } from './auth_fields.ts'
+import { createUser } from '@utils/DataBaseClient.ts'
 
 export default function Register() {
 	let design = {
@@ -26,11 +27,17 @@ export default function Register() {
 		setStatus({ error: '', success: false, isLoading: true })
 
 		try {
-			if (!name && !surname && !email && !confirmEmail && !password && !confirmPassword && !terms) {
-				console.log('Register user')
-				setStatus({ error: '', success: true, isLoading: false })
+			if (name && surname && email && confirmEmail && password && confirmPassword && terms) {
+				if (email === confirmEmail && password === confirmPassword) {
+					await createUser(name, surname, email, password)
+					setStatus({ error: '', success: true, isLoading: false })
+					window.location.href = '/auth/login'
+				} else {
+					setStatus({ error: 'Please check the entered data', success: false, isLoading: false })
+				}
+			} else {
+				setStatus({ error: 'Please fill all required fields', success: false, isLoading: false })
 			}
-			setStatus({ error: 'FILL THE FILEDs!!!', success: false, isLoading: false })
 		} catch (error: any) {
 			setStatus({ error: error.message, success: false, isLoading: false })
 		}
@@ -43,6 +50,9 @@ export default function Register() {
 					<h1 className="mt-6 text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
 						Register an account
 					</h1>
+					<h2 className="mt-6 text-center text-base tracking-tight text-red-500 md:text-base dark:text-red-500">
+						Please be aware that every fifth minute the database is cleared
+					</h2>
 					<form className="p-8 space-y-4 md:space-y-6" action="#" method="post" id="register-form" autoComplete="off">
 						{/* userInfo group start */}
 						<div className="flex -mx-2">
@@ -63,7 +73,7 @@ export default function Register() {
 									placeholder={userInfo.name_input.placeholder}
 									required={userInfo.name_input.required}
 									autoComplete={userInfo.name_input.autoComplete}
-									value={status.error ? '' : name}
+									value={status.error ? name : name}
 									onChange={(v) => setName(v.target.value)}
 								/>
 							</div>
@@ -84,7 +94,7 @@ export default function Register() {
 									placeholder={userInfo.surname_input.placeholder}
 									required={userInfo.surname_input.required}
 									autoComplete={userInfo.surname_input.autoComplete}
-									value={status.error ? '' : surname}
+									value={status.error ? surname : surname}
 									onChange={(v) => setSurname(v.target.value)}
 								/>
 							</div>
@@ -109,7 +119,7 @@ export default function Register() {
 									placeholder={emailData.email_input.placeholder}
 									required={emailData.email_input.required}
 									autoComplete={emailData.email_input.autoComplete}
-									value={status.error ? '' : email}
+									value={status.error ? email : email}
 									onChange={(v) => setEmail(v.target.value)}
 								/>
 							</div>
@@ -130,7 +140,7 @@ export default function Register() {
 									placeholder={emailData.confirmEmail_input.placeholder}
 									required={emailData.confirmEmail_input.required}
 									autoComplete={emailData.confirmEmail_input.autoComplete}
-									value={status.error ? '' : confirmEmail}
+									value={status.error ? confirmEmail : confirmEmail}
 									onChange={(v) => setConfirmEmail(v.target.value)}
 								/>
 							</div>
@@ -155,7 +165,7 @@ export default function Register() {
 									placeholder={passwordData.password_input.placeholder}
 									required={passwordData.password_input.required}
 									autoComplete={passwordData.password_input.autoComplete}
-									value={status.error ? '' : password}
+									value={status.error ? password : password}
 									onChange={(v) => setPassword(v.target.value)}
 								/>
 							</div>
@@ -176,7 +186,7 @@ export default function Register() {
 									placeholder={passwordData.confirmPassword_input.placeholder}
 									required={passwordData.confirmPassword_input.required}
 									autoComplete={passwordData.confirmPassword_input.autoComplete}
-									value={status.error ? '' : confirmPassword}
+									value={status.error ? confirmPassword : confirmPassword}
 									onChange={(v) => setConfirmPassword(v.target.value)}
 								/>
 							</div>
@@ -203,9 +213,16 @@ export default function Register() {
 								</label>
 							</div>
 						</div>
+						{status.error ? (
+							<p id="error_message" className="mt-2 text-sm text-red-600 dark:text-red-500">
+								{status.error}
+							</p>
+						) : (
+							''
+						)}
 						<button
 							disabled={status.isLoading}
-							type="submit"
+							type="button"
 							className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
 							onClick={handleRegister}
 						>

@@ -5,11 +5,11 @@
 ```md
 /
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
-│   └── utils/
+│ ├── assets/
+│ ├── components/
+│ ├── layouts/
+│ ├── pages/
+│ └── utils/
 └── package.json
 ```
 
