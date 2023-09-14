@@ -17,17 +17,16 @@ export default function Login() {
 		setStatus({ error: '', success: false, isLoading: true })
 
 		try {
-			let user
 			if (email && password) {
-				setStatus({ error: '', success: false, isLoading: true })
-				user = await getUser(email)
+				let user = await getUser(email)
 				if (user?.password === password) {
 					setStatus({ error: '', success: true, isLoading: false })
 					document.cookie = `token=${jwt()}; ;path=/`
 					window.location.href = '/'
 				}
+			} else {
+				setStatus({ error: 'Fill all required fields', success: false, isLoading: false })
 			}
-			setStatus({ error: 'Fill all required fields', success: false, isLoading: false })
 		} catch (error: any) {
 			setStatus({ error: error.message, success: false, isLoading: false })
 		}
@@ -87,7 +86,7 @@ export default function Login() {
 						</div>
 						<button
 							disabled={status.isLoading}
-							type="submit"
+							type="button"
 							className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
 							onClick={handleLogin}
 						>
