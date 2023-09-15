@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/PageLayout.astro'
 
-if (!Astro.request.headers.get('cookie')) {
+if (!Astro.cookies.get('token')) {
 	return Astro.redirect('/auth/login')
 }
 ---

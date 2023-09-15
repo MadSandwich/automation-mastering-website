@@ -31,7 +31,7 @@ export default function Register() {
 				if (email === confirmEmail && password === confirmPassword) {
 					await createUser(email, password, name, surname)
 					setStatus({ error: '', success: true, isLoading: false })
-					window.location.href = '/auth/login'
+					location.href = '/auth/login'
 				} else {
 					setStatus({ error: 'Please check the entered data', success: false, isLoading: false })
 				}

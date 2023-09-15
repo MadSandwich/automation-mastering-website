@@ -2,7 +2,7 @@
 import Layout from '@layouts/PageLayout.astro'
 import TransactionsTable from '@components/transactions/TransactionsTable.astro'
 
-if (!Astro.request.headers.get('cookie')) {
+if (!Astro.cookies.get('token')) {
 	return Astro.redirect('/auth/login')
 }
 ---

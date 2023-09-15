@@ -22,7 +22,7 @@ export default function Login() {
 				if (user?.password === password) {
 					setStatus({ error: '', success: true, isLoading: false })
 					document.cookie = `token=${jwt()}; ;path=/`
-					window.location.href = '/'
+					location.href = '/'
 				}
 			} else {
 				setStatus({ error: 'Fill all required fields', success: false, isLoading: false })
