@@ -1,6 +1,10 @@
 ---
 import Layout from '@layouts/AuthorisationLayout.astro'
 import LoginAuth from '@components/auth/Login.tsx'
+
+if (Astro.cookies.get('token')) {
+	return Astro.redirect('/')
+}
 ---
 
 <Layout title="Login page" description="Login page for automation demo website">

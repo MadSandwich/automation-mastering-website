@@ -16,3 +16,17 @@ export async function getUser(email: string) {
 	}
 	return users.at(0)
 }
+
+export async function createUser(email: string, password: string, name: string, surname: string) {
+	let { data, status, error } = await supabase
+		.from('users')
+		.insert([{ email: email, password: password, name: name, surname: surname }])
+		.select()
+
+	if (status === 201) {
+		return data
+	}
+	if (error) {
+		throw new Error(error.code + error.message)
+	}
+}

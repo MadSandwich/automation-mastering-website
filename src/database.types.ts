@@ -6,24 +6,33 @@ export interface Database {
 			users: {
 				Row: {
 					created_at: string
-					email: string | null
+					default: boolean
+					email: string
 					id: number
-					password: string | null
+					name: string
+					password: string
 					role: string
+					surname: string
 				}
 				Insert: {
 					created_at?: string
-					email?: string | null
+					default?: boolean
+					email: string
 					id?: number
-					password?: string | null
+					name?: string
+					password: string
 					role?: string
+					surname?: string
 				}
 				Update: {
 					created_at?: string
-					email?: string | null
+					default?: boolean
+					email?: string
 					id?: number
-					password?: string | null
+					name?: string
+					password?: string
 					role?: string
+					surname?: string
 				}
 				Relationships: []
 			}
