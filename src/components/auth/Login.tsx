@@ -21,7 +21,8 @@ export default function Login() {
 				let user = await getUser(email)
 				if (user?.password === password) {
 					setStatus({ error: '', success: true, isLoading: false })
-					document.cookie = `token=${jwt()}; ;path=/`
+					window.localStorage.setItem('token', jwt())
+					window.localStorage.setItem('user', email)
 					location.href = '/'
 				}
 			} else {

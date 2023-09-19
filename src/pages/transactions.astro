@@ -1,11 +1,13 @@
 ---
 import Layout from '@layouts/PageLayout.astro'
 import TransactionsTable from '@components/transactions/TransactionsTable.astro'
-
-if (!Astro.cookies.get('token')) {
-	return Astro.redirect('/auth/login')
-}
 ---
+
+<script>
+	if (!localStorage.getItem('token')) {
+		window.location.href = '/auth/login'
+	}
+</script>
 
 <Layout title="Transactions" description="Transactions table operations">
 	<TransactionsTable />
