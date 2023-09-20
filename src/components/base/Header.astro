@@ -42,7 +42,7 @@ import Profile from '@components/Profile.tsx'
 				</Link>
 			</div>
 			<div class="flex justify-end items-center">
-				{Astro.url.pathname.includes('auth/') ? '' : <Profile client:only/>}
+				{Astro.url.pathname.includes('auth/') ? '' : <Profile client:idle />}
 				<button
 					title="theme switcher"
 					id="theme-toggle"

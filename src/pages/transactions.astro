@@ -3,7 +3,7 @@ import Layout from '@layouts/PageLayout.astro'
 import TransactionsTable from '@components/transactions/TransactionsTable.astro'
 ---
 
-<script>
+<script is:inline>
 	if (!localStorage.getItem('token')) {
 		window.location.href = '/auth/login'
 	}
