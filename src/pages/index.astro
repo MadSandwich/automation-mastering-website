@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon'
 import Layout from '../layouts/PageLayout.astro'
 ---
 
-<script>
+<script is:inline>
 	if (!localStorage.getItem('token')) {
 		window.location.href = '/auth/login'
 	}
